@@ -1,8 +1,9 @@
-import Button from '@restart/ui/esm/Button';
-import React, { useState } from 'react'
-import { Form, FormControl, Spinner } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react'
+import { Container  } from 'react-bootstrap';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { Pagination } from '../components/pagination/Pagination';
 import { CardCharacter } from '../components/shared/cardCharacter/CardCharacter';
+import SpinLoader from '../components/spinLoader/SpinLoader';
 import { useFetchSearch } from '../hooks/useFetch';
 
 
@@ -10,39 +11,55 @@ import { useFetchSearch } from '../hooks/useFetch';
 function SearchPage() {
 
     const [search, setSearch] = useState('');
-
     const [name, setName] = useState('')
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const [currentCharacters, setCurrentCharacters] = useState([]);
 
     const [allCharacters, isLoadingCharacters] = useFetchSearch(name);
 
+
+    useEffect(() => {
+        const limit = 9;
+        const start = 0 + currentPage * limit - limit;
+        const end = start + limit;
+
+        const sliceCharacters = allCharacters.slice(start, end);
+        setCurrentCharacters(sliceCharacters)
+
+        const totalPages = Math.ceil(allCharacters.length / limit);
+        setTotalPages(totalPages);
+    }, [allCharacters, currentPage])
+
     // Funcion de busqueda
-    const changeSearch = (e) => {
-        const keyword = e.target.value;
-        setSearch(keyword);
-    };
-    const submitSearch = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
-        setName(search)
-    }
+        const keyword = e.target.value;
+        setName(keyword);
+    };
+
+
 
     return (
-        <div>
-            Search a HERO
-            <Form className="d-flex"  onSubmit={submitSearch}>
-                <FormControl
-                    name="searchName"
-                    type="search"
-                    placeholder="Search a character..."
-                    className="mr-2"
-                    aria-label="Search"
-                    onChange={changeSearch}
-                   
-                />
-                <Button type='submit' variant="outline-success"><AiOutlineSearch /> </Button>
-            </Form>
-
+        <Container className="">
+            <div className="d-flex justify-content-between">
+                <form >
+                    <input
+                        type="search"
+                        onChange={handleChange}
+                        placeholder="Search a character..."
+                        aria-label="Search"
+                        name="searchName"
+                    />
+                    {/* <button type="submit"><AiOutlineSearch /></button> */}
+                </form>
+                <div className="text-center d-flex">
+                    EL PELUCA SAPE
+                </div>
+            </div>
             <div className="row row-cols-3 justify-content-center align-items-center">
-                { allCharacters?.map((char) => (
+                {currentCharacters?.map((char) => (
                     <CardCharacter
                         key={char.id}
                         character={char}
@@ -55,11 +72,18 @@ function SearchPage() {
                     <p>NO HAY RESULTADOS</p>
                 )}
 
-                {/* <div className="position-fixed ">
-                    {<Spinner size="lg" isLoading={isLoadingCharacters} />}
-                </div> */}
+                <div className="position-fixed ">
+                        {<SpinLoader size="lg" isLoading={isLoadingCharacters} />}
+                    </div>
+
             </div>
-        </div>
+            <div className="d-flex justify-content-center align-items-center">
+                <Pagination
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalPages={totalPages} />
+            </div>
+        </Container>
     )
 }
 
