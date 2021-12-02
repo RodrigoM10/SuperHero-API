@@ -1,0 +1,10 @@
+.footer-style{
+    background-color: rgba(128, 128, 128, 0.596) ;
+}
+.social-icon {
+    margin: 0 0.5rem;
+    color: whitesmoke !important;
+    width: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
