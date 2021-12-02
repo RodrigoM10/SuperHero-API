@@ -1,50 +1,63 @@
-import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap';
+import Button from '@restart/ui/esm/Button';
+import React, { useState } from 'react'
+import { Form, FormControl, Spinner } from 'react-bootstrap';
+import { AiOutlineSearch } from 'react-icons/ai';
 import { CardCharacter } from '../components/shared/cardCharacter/CardCharacter';
-import { useFetch, useFetchAll } from '../hooks/useFetch';
+import { useFetchSearch } from '../hooks/useFetch';
 
 
 
-function SearchPage({ search, name }) {
+function SearchPage() {
 
-    const [characters, setCharacters] = useState([]);
+    const [search, setSearch] = useState('');
 
-    const [allCharacters, isLoadingCharacters] = useFetch(
-        `/search/${name}`
-    );
+    const [name, setName] = useState('')
 
-    // useEffect(() => {
-    //     const limit = 15;
-    //     const start = 0 + page * limit - limit;
-    //     const end = start + limit;
+    const [allCharacters, isLoadingCharacters] = useFetchSearch(name);
 
-
-    // }, [input])
-
-
-    console.log("🚀 ~ file: SearchPage.jsx ~ line 11 ~ SearchPage ~ characters", allCharacters)
+    // Funcion de busqueda
+    const changeSearch = (e) => {
+        const keyword = e.target.value;
+        setSearch(keyword);
+    };
+    const submitSearch = (e) => {
+        e.preventDefault();
+        setName(search)
+    }
 
     return (
         <div>
             Search a HERO
+            <Form className="d-flex"  onSubmit={submitSearch}>
+                <FormControl
+                    name="searchName"
+                    type="search"
+                    placeholder="Search a character..."
+                    className="mr-2"
+                    aria-label="Search"
+                    onChange={changeSearch}
+                   
+                />
+                <Button type='submit' variant="outline-success"><AiOutlineSearch /> </Button>
+            </Form>
 
             <div className="row row-cols-3 justify-content-center align-items-center">
-                {/* {allCharacters?.map((char) => (
+                { allCharacters?.map((char) => (
                     <CardCharacter
                         key={char.id}
                         character={char}
                     //   onToggleFavorite={() => toggleFavorite(char.id)}
                     //   isFavorite={isFavorite(char.id)}
                     />
-                ))} */}
+                ))}
 
                 {!isLoadingCharacters && !allCharacters.length && (
                     <p>NO HAY RESULTADOS</p>
                 )}
 
-                <div className="position-fixed ">
+                {/* <div className="position-fixed ">
                     {<Spinner size="lg" isLoading={isLoadingCharacters} />}
-                </div>
+                </div> */}
             </div>
         </div>
     )

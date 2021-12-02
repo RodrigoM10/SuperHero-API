@@ -7,14 +7,14 @@ export function useFetch(url, initialState = {}) {
 
   useEffect(() => {
     (async function () {
-      try{
-          setIsLoading(true);
-          const res = await axios.get(url);
-          setData(res.data.results);
-          setIsLoading(false);
+      try {
+        setIsLoading(true);
+        const res = await axios.get(url);
+        setData(res.data.results);
+        setIsLoading(false);
       } catch (error) {
-          console.error(error);
-          alert('Hubo un error en la conexión al servidor ');
+        console.error(error);
+        alert('Hubo un error en la conexión al servidor ');
       }
     })();
   }, [url]);
@@ -22,23 +22,27 @@ export function useFetch(url, initialState = {}) {
   return [data, isLoading];
 }
 
-// export function useFetchAll(url) {
-//   const [data, isLoading] = useFetch(url);
-//   const [allData, setAllData] = useState([]);
-//   const [isAnyLoading, setIsAnyLoading] = useState(true);
+export function useFetchSearch(name) {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-//   useEffect(() => {
-//     if (isLoading) return;
+  useEffect(() => {
+    (async function () {
+      if (name === '') {
+        setData([]);
+        return;
+      }
+      try {
+        setIsLoading(true);
+        const res = await axios.get(`/search/${name}`);
+        setData(res.data.results);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        alert('Hubo un error en la conexión al servidor ');
+      }
+    })();
+  }, [name]);
 
-//     (async function () {
-//       setIsAnyLoading(true);
-//       const promises = axios.get(url);
-//       const allResponses = await Promise.all(promises);
-//       const allResults = allResponses.reduce((acc, curr) => ([...acc, ...curr.data.results]), [])
-//       setAllData(allResults);
-//       setIsAnyLoading(false);
-//     })();
-//   }, [url, data, isLoading]);
-
-//   return [allData, isAnyLoading];
-// }
+  return [data, isLoading];
+}

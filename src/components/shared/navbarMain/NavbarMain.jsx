@@ -1,24 +1,10 @@
-import Button from '@restart/ui/esm/Button'
 import React from 'react'
-import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 import './navbarMain.css'
 
-
-import { AiOutlineSearch } from 'react-icons/ai';
-
-
-export const NavbarMain = ({setSearch, setName}) => {
-
-    // Funcion de busqueda
-    const Searching = (e) => {
-      e.preventDefault();
-      const keyword = e.target.value;
-      setName(keyword);
-  };
-
-
+export const NavbarMain = () => {
 
   return (
     <Navbar bg="light" expand="lg" >
@@ -35,19 +21,14 @@ export const NavbarMain = ({setSearch, setName}) => {
                     <li className="p-2 mt-2 mx-3">
                         <Nav.Link as={NavLink} to="/searchPage" activeclassname="link-active">Search SuperHeros</Nav.Link>
                     </li>
+                    <li className="p-2 mt-2 mx-3">
+                        <Nav.Link as={NavLink} to="/login" activeclassname="link-active">Login</Nav.Link>
+                    </li>
                 </div>
-            </Nav>
+          </Nav>
+
         </Navbar.Collapse>
-        <Form className="d-flex">
-        <FormControl
-              name="searchName"
-              type="search"
-              placeholder="Search a character..."
-              className="mr-2"
-              aria-label="Search"
-        />
-        <Button onChange={Searching} variant="outline-success"><AiOutlineSearch /> </Button>
-      </Form>
+        
 <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Container>
     </Navbar>
