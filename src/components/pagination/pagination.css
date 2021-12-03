@@ -5,7 +5,7 @@
   }
   .pagination a, .pagination li {
     border-radius: 50%;
-    color: #212121;
+    color: #7e7b7b;
     display: inline-block;
     margin: 0;
     transition: .15s ease-in;
@@ -28,12 +28,13 @@
     padding: 4px 0;
   }
   .pagination .pagination-number.current-number {
-    background: #203048;
+    background: #688ec7;
     color: #fff;
   }
   .pagination .pagination-arrow {
     font-size: 24px;
     padding: 4px;
     border: none;
+    color: white;
   background-color: transparent;
   }

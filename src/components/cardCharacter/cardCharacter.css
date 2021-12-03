@@ -1,0 +1,14 @@
+.card-style {
+    width: 18rem;
+    height: 33rem;
+    margin: 0.7rem ;
+    color: black !important;
+    transition: 0.3s;
+    cursor:pointer;
+}
+.card-style:hover {
+  transform: scale(102%);
+}
+.card-img-style{
+  height: 60%;
+}
