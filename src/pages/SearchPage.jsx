@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container  } from 'react-bootstrap';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { Pagination } from '../components/pagination/Pagination';
-import { CardCharacter } from '../components/shared/cardCharacter/CardCharacter';
+import { CardCharacter } from '../components/cardCharacter/CardCharacter';
 import SpinLoader from '../components/spinLoader/SpinLoader';
 import { useFetchSearch } from '../hooks/useFetch';
 
@@ -19,12 +19,15 @@ function SearchPage() {
 
     const [allCharacters, isLoadingCharacters] = useFetchSearch(name);
 
-
     useEffect(() => {
         const limit = 9;
         const start = 0 + currentPage * limit - limit;
         const end = start + limit;
 
+        if(!allCharacters){
+            setCurrentCharacters([]);
+            return;
+        }
         const sliceCharacters = allCharacters.slice(start, end);
         setCurrentCharacters(sliceCharacters)
 
@@ -34,7 +37,6 @@ function SearchPage() {
 
     // Funcion de busqueda
     const handleChange = (e) => {
-        e.preventDefault();
         const keyword = e.target.value;
         setName(keyword);
     };
@@ -68,7 +70,7 @@ function SearchPage() {
                     />
                 ))}
 
-                {!isLoadingCharacters && !allCharacters.length && (
+                {!isLoadingCharacters && !currentCharacters.length && (
                     <p>NO HAY RESULTADOS</p>
                 )}
 

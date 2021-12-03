@@ -28,18 +28,22 @@ export function useFetchSearch(name) {
 
   useEffect(() => {
     (async function () {
-      if (name === '') {
+      if (name === '' || name === null) {
         setData([]);
+        setIsLoading(false);
         return;
       }
-      try {
-        setIsLoading(true);
-        const res = await axios.get(`/search/${name}`);
-        setData(res.data.results);
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-        alert('Hubo un error en la conexión al servidor ');
+      if (name.length >= 2) {
+        try {
+          setIsLoading(true);
+          const res = await axios.get(`/search/${name}`);
+          setData(res.data.results);
+          setIsLoading(false);
+        }
+        catch (error) {
+          console.error(error);
+          alert('Hubo un error en la conexión al servidor ');
+        }
       }
     })();
   }, [name]);
