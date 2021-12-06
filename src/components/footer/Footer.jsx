@@ -17,7 +17,7 @@ export const Footer = () => {
             </div>
             <div className="d-flex align-items-center justify-content-around py-2">
                 <div>
-                    <span >© 2021 Derechos Reservados FrogDevs <FaFrog className="mb-1 mx-1" /></span>
+                    <span >© 2021 Derechos Rodrigo Mendoza <FaFrog className="mb-1 mx-1" /></span>
                 </div>
                 <div>
                     <button onClick={scrollToTop} className="to-top-btn"><FaArrowUp className="mb-1"/></button>
