@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, ListGroup } from 'react-bootstrap'
 
 export const CardTeamCharacter = ({ teamChar, team, setTeam }) => {
-    console.log("🚀 ~ file: cardTeamCharacter.jsx ~ line 5 ~ CardTeamCharacter ~ team", team)
+
 
     const {character} = teamChar;
 
