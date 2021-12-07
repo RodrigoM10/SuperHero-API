@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 
 import { useFetchSearch } from '../../hooks/useFetch'
 import { CardCharacter } from '../cardCharacter/CardCharacter'
-import CardNoResults from '../cardNoResults.jsx/CardNoResults'
+import CardNoResults from '../cardNoResults/CardNoResults'
 import { PaginationCards } from '../paginationCards/PaginationCards'
 import SpinLoader from '../spinLoader/SpinLoader'
 
 
-export const Characters = ({ name, cardResults }) => {
+export const Characters = ({ name, cardResults, team, setTeam }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -44,10 +44,10 @@ export const Characters = ({ name, cardResults }) => {
                     <div className="row row-cols-3 justify-content-center align-items-center">
                         {currentCharacters?.map((char) => (
                             <CardCharacter
+                                team={team}
+                                setTeam={setTeam}
                                 key={char.id}
                                 character={char}
-                            //   onToggleFavorite={() => toggleFavorite(char.id)}
-                            //   isFavorite={isFavorite(char.id)}
                             />
                         ))}
                     </div>
@@ -67,10 +67,10 @@ export const Characters = ({ name, cardResults }) => {
                 <PaginationCards
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
-                    totalPages={totalPages} 
-                    />
+                    totalPages={totalPages}
+                />
             </div>
-           
+
         </>
     )
 }

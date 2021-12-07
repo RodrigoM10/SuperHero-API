@@ -13,10 +13,13 @@ import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import { readFromLocalStorage } from "./utils/localStorage";
 import { useState } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const tokenLocalData = readFromLocalStorage('token') || {};
   const [IsToken, setIsToken] = useState({})
+
+  const [team, setTeam] = useLocalStorage('team', []);
 
 
   const requestToken = () => {
@@ -45,9 +48,13 @@ function App() {
           <Route path="/" element={<Home
             tokenLocalData={tokenLocalData}
             requestToken={requestToken}
+            team={team}
+            setTeam={setTeam}
           />} />
 
           <Route path="/searchPage" element={<SearchPage 
+          team={team}
+          setTeam={setTeam}
            tokenLocalData={tokenLocalData}
            requestToken={requestToken}
           />} />

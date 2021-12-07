@@ -5,7 +5,7 @@ import FormLogin from '../components/formLogin/FormLogin';
 import { SearchForm } from '../components/searchForm/SearchForm';
 
 
-function SearchPage({ tokenLocalData, requestToken }) {
+function SearchPage({ tokenLocalData, requestToken, team, setTeam }) {
 
     const [name, setName] = useState('')
     const [cardResults, setCardResults] = useState('Forma tu equipo de Super Heroes y/o Super Villanos')
@@ -29,6 +29,8 @@ function SearchPage({ tokenLocalData, requestToken }) {
                 </>
                 :
                 <Characters
+                    team={team}
+                    setTeam={setTeam}
                     cardResults={cardResults}
                     name={name}
                 />

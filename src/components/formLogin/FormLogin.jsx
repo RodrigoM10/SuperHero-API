@@ -27,6 +27,7 @@ export default function FormLogin({requestToken}) {
     const location = useLocation();
     const { pathname } = location;
     const splitLocation = pathname.split("/");
+
     
     const navigate = useNavigate();
 
@@ -49,10 +50,10 @@ export default function FormLogin({requestToken}) {
                     icon: "success",
                     button: "Continuar"
                 });
-                if(splitLocation === 'login') {
+                requestToken();
+                if(splitLocation[1] === 'login') {
                     navigate('/');
                 }
-                requestToken();
                 } catch (error) {
                     console.error(error);
                     if(error.response.data){
