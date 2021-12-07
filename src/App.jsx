@@ -11,25 +11,46 @@ import Home from "./pages/Home";
 import SearchPage from "./pages/SearchPage";
 import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
-// import { useEffect, useState } from "react";
-// import axios from "axios";
+import { readFromLocalStorage } from "./utils/localStorage";
+import { useState } from "react";
 
 function App() {
+  const tokenLocalData = readFromLocalStorage('token') || {};
+  const [IsToken, setIsToken] = useState({})
+
+
+  const requestToken = () => {
+    const tokenLocal = readFromLocalStorage('token') || {};
+    if (tokenLocal.token) {
+      setIsToken(tokenLocal.token)
+    } else {
+      alert('No hay token')
+    }
+  }
 
 
   return (
     <div className="schema-page">
       <NavbarMain
+        tokenLocalData={tokenLocalData}
       />
       <Routes >
+        {!tokenLocalData.token &&
+          <Route path="/login" element={
+            <Login
+              requestToken={requestToken}
+            />} />
+        }
         {/* pages */}
-        <Route path="/" element={<Home />} />
-
-        <Route path="/searchPage" element={
-          <SearchPage
+          <Route path="/" element={<Home
+            tokenLocalData={tokenLocalData}
+            requestToken={requestToken}
           />} />
-        <Route path="/login" element={
-          <Login/>} />
+
+          <Route path="/searchPage" element={<SearchPage 
+           tokenLocalData={tokenLocalData}
+           requestToken={requestToken}
+          />} />
 
 
         <Route path="/404" element={<NoMatch />} />

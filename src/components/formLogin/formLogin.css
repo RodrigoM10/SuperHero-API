@@ -1,0 +1,11 @@
+.input-login{
+    margin: 1rem !important;
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+  }
+  .form-button{
+    background-color: blue !important;
+    margin: 0.5rem;
+    width: 50%;
+  
+  }
