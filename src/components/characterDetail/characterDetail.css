@@ -1,0 +1,19 @@
+.card-details {
+    margin: 2.5rem auto;
+    text-align: center;
+    border: 2px solid #b59062;
+    max-width: 50rem;
+    height: auto;
+  }
+  @media only screen and (max-width: 768px) {
+    .card-details {
+      min-width: 20rem;
+    }
+  }
+  .img-character {
+    width: 18rem;
+    height: auto;
+  }
+  .card-body-container {
+    width: 20rem;
+  }

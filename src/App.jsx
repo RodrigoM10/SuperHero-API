@@ -14,6 +14,8 @@ import Login from "./pages/Login";
 import { readFromLocalStorage } from "./utils/localStorage";
 import { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import Character from "./pages/CharacterFull";
+import CharacterFull from "./pages/CharacterFull";
 
 function App() {
   const tokenLocalData = readFromLocalStorage('token') || {};
@@ -45,19 +47,24 @@ function App() {
             />} />
         }
         {/* pages */}
-          <Route path="/" element={<Home
-            tokenLocalData={tokenLocalData}
-            requestToken={requestToken}
-            team={team}
-            setTeam={setTeam}
-          />} />
-
-          <Route path="/searchPage" element={<SearchPage 
+        <Route path="/" element={<Home
+          tokenLocalData={tokenLocalData}
+          requestToken={requestToken}
           team={team}
           setTeam={setTeam}
-           tokenLocalData={tokenLocalData}
-           requestToken={requestToken}
-          />} />
+        />} />
+
+        <Route path="/searchPage" element={<SearchPage
+          team={team}
+          setTeam={setTeam}
+          tokenLocalData={tokenLocalData}
+          requestToken={requestToken}
+        />} />
+
+        {tokenLocalData.token &&
+          <Route path="/characterFull/:charId" element={
+            <CharacterFull />} />
+        }
 
 
         <Route path="/404" element={<NoMatch />} />

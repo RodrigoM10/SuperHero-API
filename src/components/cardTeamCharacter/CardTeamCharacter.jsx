@@ -1,11 +1,10 @@
 import React from 'react'
-import { Card, ListGroup } from 'react-bootstrap'
+import { Button, Card, ListGroup } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 
 export const CardTeamCharacter = ({ teamChar, team, setTeam }) => {
-
-
     const {character} = teamChar;
-
+    
     const removeToTeam = () => {
         const filterTeam = team.filter((char) => char.character.id !== teamChar.character.id);
         setTeam(filterTeam);
@@ -27,9 +26,9 @@ export const CardTeamCharacter = ({ teamChar, team, setTeam }) => {
                 <button onClick={removeToTeam}>
                     Eliminar
                 </button>
-                <button className="" >
-                    Detalle
-                </button>
+                <Button className="mb-1" as={Link} to={`/characterFull/${character.id}`}>
+                    Ver Detalle
+                </Button>
             </div>
         </Card>
     )

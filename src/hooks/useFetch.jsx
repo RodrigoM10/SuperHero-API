@@ -1,23 +1,23 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-export function useFetch(url, initialState = {}) {
-  const [data, setData] = useState(initialState);
+export function useFetch(id) {
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async function () {
       try {
         setIsLoading(true);
-        const res = await axios.get(url);
-        setData(res.data.results);
+        const res = await axios.get(`/${id}`);
+        setData(res.data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
         alert('Hubo un error en la conexión al servidor ');
       }
     })();
-  }, [url]);
+  }, [id]);
 
   return [data, isLoading];
 }
