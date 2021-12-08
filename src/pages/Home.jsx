@@ -13,6 +13,10 @@ function Home({ tokenLocalData, requestToken, team, setTeam }) {
             setTeam={setTeam} team={team}
         />
     ));
+    
+
+
+    
 
 
     return (
@@ -27,7 +31,9 @@ function Home({ tokenLocalData, requestToken, team, setTeam }) {
                         <h2>MI TEAM</h2>
                         <div>
                             <h3>Powerstats</h3>
-                            <BarPowerstats />
+                            <BarPowerstats
+                            team={team}
+                            />
                         </div>
                     </div>
                     <div>
