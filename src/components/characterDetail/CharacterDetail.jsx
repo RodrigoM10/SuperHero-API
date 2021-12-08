@@ -3,7 +3,6 @@ import { Card, ListGroup } from 'react-bootstrap'
 import './characterDetail.css'
 
 export const CharacterDetail = ({ character }) => {
-    console.log("🚀 ~ file: CharacterDetail.jsx ~ line 4 ~ CharacterDetail ~ character", character)
     const { image, name, appearance, biography, work } = character;
 
 
