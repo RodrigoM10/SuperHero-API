@@ -4,6 +4,7 @@ import './characterDetail.css'
 
 export const CharacterDetail = ({ character }) => {
     const { image, name, appearance, biography, work } = character;
+    console.log("🚀 ~ file: CharacterDetail.jsx ~ line 7 ~ CharacterDetail ~ character", character)
 
     return (
         <div className="card-details row ">
@@ -15,8 +16,9 @@ export const CharacterDetail = ({ character }) => {
             <div className="col-12 col-lg-6  d-flex flex-column aling-items-between card-body-container mx-auto">
                 <Card.Body className="p-0">
                     <Card.Title className="text-center my-3">
-                        {`${name} ( ${biography?.aliases} )`}
+                        {name}
                     </Card.Title>
+                    <span>({biography?.aliases})</span>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             Ubicación
@@ -30,6 +32,8 @@ export const CharacterDetail = ({ character }) => {
 
                                 <li >Peso: {appearance?.weight[1]}</li>
                                 <li>Altura: {appearance?.height[1]}</li>
+                                <li>Color de Ojos: {appearance && appearance['eye-color']}</li>
+                                <li>Color de Cabello: {appearance && appearance['hair-color']}</li>
                             </div>
                         </ListGroup.Item>
                         <ListGroup.Item>

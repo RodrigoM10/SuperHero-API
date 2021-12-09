@@ -10,7 +10,6 @@ import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-
 const validationSchema = yup.object({
     email: yup
         .string('Ingrese su email')

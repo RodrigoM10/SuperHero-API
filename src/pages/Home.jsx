@@ -6,7 +6,7 @@ import { CardTeamCharacter } from '../components/cardTeamCharacter/CardTeamChara
 
 import FormLogin from '../components/formLogin/FormLogin'
 
-function Home({ tokenLocalData, requestToken, team, setTeam }) {
+function Home({ tokenLocalData, requestToken, team, setTeam}) {
 
     const mapTeam = team?.map((teamChar, i) => (
         <CardTeamCharacter
