@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import { AppearanceData } from '../components/appearanceData/AppearanceData';
 import { BarPowerstats } from '../components/barPowerstats/BarPowerstats';
 import { CardTeamCharacter } from '../components/cardTeamCharacter/CardTeamCharacter';
 
@@ -14,11 +15,6 @@ function Home({ tokenLocalData, requestToken, team, setTeam }) {
         />
     ));
     
-
-
-    
-
-
     return (
         <Container>
             {!tokenLocalData &&
@@ -33,6 +29,12 @@ function Home({ tokenLocalData, requestToken, team, setTeam }) {
                             <h3>Powerstats</h3>
                             <BarPowerstats
                             team={team}
+                            />
+                        </div>
+                        <div>
+                            <h3>Peso y Altura</h3>
+                            <AppearanceData
+                            team={team} 
                             />
                         </div>
                     </div>

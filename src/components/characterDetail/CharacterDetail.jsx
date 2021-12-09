@@ -5,7 +5,6 @@ import './characterDetail.css'
 export const CharacterDetail = ({ character }) => {
     const { image, name, appearance, biography, work } = character;
 
-
     return (
         <div className="card-details row ">
             <Card.Img
@@ -31,8 +30,6 @@ export const CharacterDetail = ({ character }) => {
 
                                 <li >Peso: {appearance?.weight[1]}</li>
                                 <li>Altura: {appearance?.height[1]}</li>
-                                {/* <li>Altura: {appearance?.}</li> */}
-                                {/* <li>Altura: {appearance?.}</li> */}
                             </div>
                         </ListGroup.Item>
                         <ListGroup.Item>

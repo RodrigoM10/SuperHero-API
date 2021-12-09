@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom';
 export const CardTeamCharacter = ({ teamChar, team, setTeam }) => {
     const {character} = teamChar;
     console.log("🚀 ~ file: CardTeamCharacter.jsx ~ line 7 ~ CardTeamCharacter ~ character", character)
-    
+
     const removeToTeam = () => {
         const filterTeam = team.filter((char) => char.character.id !== teamChar.character.id);
         setTeam(filterTeam);
     };
-
 
     return (
         <Card className="card-style p-0 mx-3">
@@ -21,7 +20,6 @@ export const CardTeamCharacter = ({ teamChar, team, setTeam }) => {
                     <ListGroup.Item>Combate: {character.powerstats.combat} | Durabilidad: {character.powerstats.durability}</ListGroup.Item>
                     <ListGroup.Item>Inteligencia: {character.powerstats.intelligence} | Poder: {character.powerstats.power}</ListGroup.Item>
                     <ListGroup.Item>Velocidad: {character.powerstats.speed} | Fuerza: {character.powerstats.strength}</ListGroup.Item>
-                    <ListGroup.Item></ListGroup.Item>
                 </ListGroup>
             </Card.Body>
             <div>

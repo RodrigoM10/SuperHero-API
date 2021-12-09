@@ -13,38 +13,45 @@ export const BarPowerstats = ({ team }) => {
 
     let powerstats = [
         {
-            skill: 'Combate',
             points: totalCombat,
+            skill: 'Combate',
         },
         {
-            skill: 'Durabilidad',
             points: totalDurability,
+            skill: 'Durabilidad',
         },
         {
-            skill: 'Inteligencia',
             points: totalIntelligence,
+            skill: 'Inteligencia',
         },
         {
-            skill: 'Poder',
             points: totalPower,
+            skill: 'Poder',
         },
         {
-            skill: 'Velocidad',
             points: totalSpeed,
+            skill: 'Velocidad',
         },
         {
-            skill: 'Fuerza',
             points: totalStrength,
+            skill: 'Fuerza',
         },
     ]
 
 
-    const mapPowerstats = powerstats.map((powerstatsBar, i) => (
+    let powerstatsOrder = powerstats.sort(function (a, b) { return b.points - a.points });
+
+
+    const mapPowerstats = powerstatsOrder.map((powerstatsBar, i) => (
+
         <li key={i} className="list-inline row my-2 ">
             <div className="col-3 skill-name px-1">
                 <span>{powerstatsBar.skill}</span>
             </div>
-            <ProgressBar className="col-9 skills-progress p-0" animated now={powerstatsBar.points.toFixed(2)} label={`${powerstatsBar.points.toFixed(2)}%`} />
+            <ProgressBar 
+             className="col-9 skills-progress p-0"
+             animated now={isNaN(powerstatsBar.points) ? 50 : powerstatsBar.points.toFixed(2)} 
+             label={isNaN(powerstatsBar.points)? 'Valor no disponible' : `${powerstatsBar.points.toFixed(2)}%`} />
         </li>
 
     ));

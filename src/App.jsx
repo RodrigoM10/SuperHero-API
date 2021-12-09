@@ -14,7 +14,6 @@ import Login from "./pages/Login";
 import { readFromLocalStorage } from "./utils/localStorage";
 import { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import Character from "./pages/CharacterFull";
 import CharacterFull from "./pages/CharacterFull";
 
 function App() {
