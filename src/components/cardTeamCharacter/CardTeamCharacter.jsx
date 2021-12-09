@@ -2,13 +2,13 @@ import React from 'react'
 import { Button, Card, ListGroup } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-export const CardTeamCharacter = ({ teamChar, team, setTeam }) => {
-    const {character} = teamChar;
-    console.log("🚀 ~ file: CardTeamCharacter.jsx ~ line 7 ~ CardTeamCharacter ~ character", character)
+export const CardTeamCharacter = ({ teamChar, team, setTeam, heros, setHeros, villains, setVillains }) => {
+    const { character } = teamChar;
 
     const removeToTeam = () => {
-        const filterTeam = team.filter((char) => char.character.id !== teamChar.character.id);
-        setTeam(filterTeam);
+        setTeam((teamList) => teamList.filter((teamChar) => teamChar.character.id !== character.id));
+        setHeros((herosList) => herosList.filter((heroChar) => heroChar.character.id !== character.id));
+        setVillains((villainsList) => villainsList.filter((villanChar) => villanChar.character.id !== character.id));
     };
 
     return (

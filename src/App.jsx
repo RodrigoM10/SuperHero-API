@@ -22,6 +22,7 @@ function App() {
 
   const [team, setTeam] = useLocalStorage('team', []);
   const [heros, setHeros] = useLocalStorage('heros', []);
+  const [villains, setVillains] = useLocalStorage('villains', []);
 
 
   const requestToken = () => {
@@ -52,7 +53,10 @@ function App() {
           requestToken={requestToken}
           team={team}
           setTeam={setTeam}
-         
+          heros={heros}
+          setHeros={setHeros}
+          villains={villains}
+          setVillains={setVillains}
         />} />
 
         <Route path="/searchPage" element={<SearchPage
@@ -60,6 +64,8 @@ function App() {
           setTeam={setTeam}
           heros={heros}
           setHeros={setHeros}
+          villains={villains}
+          setVillains={setVillains}
           tokenLocalData={tokenLocalData}
           requestToken={requestToken}
         />} />

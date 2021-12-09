@@ -7,7 +7,7 @@ import { PaginationCards } from '../paginationCards/PaginationCards'
 import SpinLoader from '../spinLoader/SpinLoader'
 
 
-export const Characters = ({ name, cardResults, team, setTeam, heros, setHeros }) => {
+export const Characters = ({ name, cardResults, team, setTeam, heros, setHeros, villains, setVillains }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -48,6 +48,8 @@ export const Characters = ({ name, cardResults, team, setTeam, heros, setHeros }
                                 setTeam={setTeam}
                                 heros={heros}
                                 setHeros={setHeros}
+                                villains={villains}
+                                setVillains={setVillains}
                                 key={char.id}
                                 character={char}
                             />

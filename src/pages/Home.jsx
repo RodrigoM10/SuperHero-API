@@ -6,15 +6,31 @@ import { CardTeamCharacter } from '../components/cardTeamCharacter/CardTeamChara
 
 import FormLogin from '../components/formLogin/FormLogin'
 
-function Home({ tokenLocalData, requestToken, team, setTeam}) {
+function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, villains, setVillains }) {
 
-    const mapTeam = team?.map((teamChar, i) => (
+    const mapVillains = villains?.map((teamChar, i) => (
         <CardTeamCharacter
             key={i} teamChar={teamChar}
-            setTeam={setTeam} team={team}
+            team={team}
+            setTeam={setTeam}
+            setHeros={setHeros}
+            heros={heros}
+            setVillains={setVillains}
+            villains={villains}
         />
     ));
-    
+    const mapHeros = heros?.map((teamChar, i) => (
+        <CardTeamCharacter
+            key={i} teamChar={teamChar}
+            team={team}
+            setTeam={setTeam}
+            setHeros={setHeros}
+            heros={heros}
+            setVillains={setVillains}
+            villains={villains}
+        />
+    ));
+
     return (
         <Container>
             {!tokenLocalData &&
@@ -28,20 +44,25 @@ function Home({ tokenLocalData, requestToken, team, setTeam}) {
                         <div>
                             <h3>Powerstats</h3>
                             <BarPowerstats
-                            team={team}
+                                team={team}
                             />
                         </div>
                         <div>
                             <h3>Peso y Altura</h3>
                             <AppearanceData
-                            team={team} 
+                                team={team}
                             />
                         </div>
                     </div>
                     <div>
                     </div>
+                    <h4>Heroes</h4>
                     <div className="row row-cols-3 justify-content-center">
-                        {mapTeam}
+                        {mapHeros}
+                    </div>
+                    <h4>Villanos</h4>
+                    <div className="row row-cols-3 justify-content-center">
+                        {mapVillains}
                     </div>
                 </div>
             }
