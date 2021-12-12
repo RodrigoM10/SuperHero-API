@@ -17,6 +17,7 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
             heros={heros}
             setVillains={setVillains}
             villains={villains}
+
         />
     ));
     const mapHeros = heros?.map((teamChar, i) => (
@@ -28,9 +29,9 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
             heros={heros}
             setVillains={setVillains}
             villains={villains}
+
         />
     ));
-
     return (
         <Container>
             {!tokenLocalData &&
@@ -39,9 +40,9 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
             }
             {tokenLocalData.token &&
                 <div>
-                    <div className="row row-cols-1">
+                    <div className="">
                         <h2>MI TEAM</h2>
-                        <div>
+                        <div className="">
                             <h3>Powerstats</h3>
                             <BarPowerstats
                                 team={team}

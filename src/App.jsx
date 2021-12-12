@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 //router dom
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 // Shared Components
 import { Footer } from "./components/footer/Footer";
@@ -24,7 +24,6 @@ function App() {
   const [heros, setHeros] = useLocalStorage('heros', []);
   const [villains, setVillains] = useLocalStorage('villains', []);
 
-
   const requestToken = () => {
     const tokenLocal = readFromLocalStorage('token') || {};
     if (tokenLocal.token) {
@@ -34,9 +33,13 @@ function App() {
     }
   }
 
+  const location = useLocation();
+  const { pathname } = location;
+  const splitLocation = pathname.split("/");
+
 
   return (
-    <div className="schema-page">
+    <div  className={splitLocation[1] === ''? 'schema-page bg-home' : 'schema-page bg-search'}>
       <NavbarMain
         tokenLocalData={tokenLocalData}
       />

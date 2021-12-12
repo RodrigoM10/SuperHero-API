@@ -1,5 +1,11 @@
-.footer-style{
-    background-color: rgba(128, 128, 128, 0.596) ;
+.footer-top{
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background-color: #f7f7f721;
+    color: white;
+}
+.footer-top-buttom{
+    background-color: rgba(133, 139, 135, 0.452);
 }
 .social-icon {
     margin: 0 0.2rem;

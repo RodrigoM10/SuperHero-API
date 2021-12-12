@@ -1,6 +1,8 @@
 import React from 'react'
-import { Button, Card, ListGroup } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+
+import { PercentageCircle } from '../percentageCircle/PercentageCircle';
 
 export const CardTeamCharacter = ({ teamChar, team, setTeam, heros, setHeros, villains, setVillains }) => {
     const { character } = teamChar;
@@ -12,21 +14,17 @@ export const CardTeamCharacter = ({ teamChar, team, setTeam, heros, setHeros, vi
     };
 
     return (
-        <Card className="card-style p-0 mx-3">
+        <Card className="card-style glass-card p-0 mx-3">
             <Card.Img className="card-img-style " variant="top" src={character.image.url} />
             <Card.Body>
-                <Card.Title>{character.name}</Card.Title>
-                <ListGroup variant="flush">
-                    <ListGroup.Item>Combate: {character.powerstats.combat} | Durabilidad: {character.powerstats.durability}</ListGroup.Item>
-                    <ListGroup.Item>Inteligencia: {character.powerstats.intelligence} | Poder: {character.powerstats.power}</ListGroup.Item>
-                    <ListGroup.Item>Velocidad: {character.powerstats.speed} | Fuerza: {character.powerstats.strength}</ListGroup.Item>
-                </ListGroup>
+                <Card.Title className="text-center">{character.name.toUpperCase()}</Card.Title>            
+                <PercentageCircle character={character}/>
             </Card.Body>
-            <div>
-                <button onClick={removeToTeam}>
+            <div className="my-2 d-flex justify-content-evenly align-content-center">
+                <Button variant='danger' onClick={removeToTeam}>
                     Eliminar
-                </button>
-                <Button className="mb-1" as={Link} to={`/characterFull/${character.id}`}>
+                </Button>
+                <Button variant='info' as={Link} to={`/characterFull/${character.id}`}>
                     Ver Detalle
                 </Button>
             </div>

@@ -1,10 +1,16 @@
+.glass-card {
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  background-color: #111928b0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
 .card-style {
     width: 20rem;
     /* height: 30rem; */
     margin: 0.7rem ;
-    color: black !important;
+    color: white !important;
     transition: 0.3s;
-    cursor:pointer;
 }
 .card-style:hover {
   transform: scale(102%);

@@ -13,7 +13,7 @@ export const NavbarMain = ({ tokenLocalData }) => {
     window.location.href = '/login';
   }
   return (
-    <Navbar bg="light" expand="lg" >
+    <Navbar variant="dark" className="navbar-style" expand="lg" >
       <Container >
         <div className=" d-flex justify-content-between justify-content-lg-start align-items-center text-center logo-navbar-contain">
           <Navbar.Brand as={NavLink} to="/" >SuperHero API</Navbar.Brand>

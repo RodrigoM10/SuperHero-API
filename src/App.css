@@ -1,12 +1,24 @@
 body {
   box-sizing: border-box;
-  background-color: rgb(0, 0, 0) !important;
-  color: whitesmoke !important;
 }
 .schema-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+.bg-home{
+  background-image: linear-gradient(to right, #a270ce1f, #4b00e041), url("./assets/wordimage.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+.bg-search{
+  background-image: linear-gradient(to right, #9c6e432d, #7028074f), url("./assets/planet2image.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
 }
 
 .searchPage-container{

@@ -51,7 +51,7 @@ export default function FormLogin({requestToken}) {
                 });
                 requestToken();
                 if(splitLocation[1] === 'login') {
-                    navigate('/');
+                    navigate('/searchPage');
                 }
                 } catch (error) {
                     console.error(error);

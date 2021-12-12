@@ -6,3 +6,10 @@
 .logo-navbar{
   width: 15rem;
 }
+.navbar-style {
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    background-color: #f7f7f721;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}

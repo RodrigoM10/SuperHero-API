@@ -11,7 +11,7 @@ function SearchPage({ tokenLocalData, requestToken, team, setTeam, heros, setHer
     const [cardResults, setCardResults] = useState('Forma tu equipo de Super Heroes y/o Super Villanos')
 
     return (
-        <Container className="d-flex flex-column justify-content-between " >
+        <Container className="d-flex flex-column justify-content-between  " >
             <div className="my-3 text-center">
                 Busca aquí tus personajes favoritos para crear un equipo completo y fuerte. Acordate que las habilidades de los personajes se promedian, pensá y analizá las posibildiades. Usa tu imaginación, hay personajes de varios universos, asi que no te limites a los convecionales... 💪
             </div>

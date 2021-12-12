@@ -13,7 +13,7 @@ export const Footer = () => {
     };
     return (
         <div className="mt-auto footer-style">
-            <div className="d-flex justify-content-center align-items-center p-3 bg-secondary">
+            <div className="d-flex justify-content-center align-items-center p-3 footer-top">
                 <NavLink href='https://github.com/RodrigoM10' target='_blank' className="p-0 mx-1">
                     <FaGithub className="social-icon-top" />
                 </NavLink>
@@ -21,7 +21,7 @@ export const Footer = () => {
                     <FaLinkedinIn className="social-icon-top" />
                 </NavLink>
             </div>
-            <div className="d-flex align-items-center justify-content-around py-2">
+            <div className="d-flex align-items-center justify-content-around py-2 footer-top-buttom">
                 <div>
                     <span >© 2021 Derechos Rodrigo Mendoza <FaFrog className="mb-1 mx-1" /></span>
                 </div>

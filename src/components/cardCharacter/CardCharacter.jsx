@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import swal from 'sweetalert'
 import './cardCharacter.css'
 
@@ -67,25 +67,26 @@ export const CardCharacter = ({ character, team, setTeam, heros, setHeros, villa
     }, [team, character]);
 
     return (
-        <Card className="card-style p-0">
+        <Card className="glass-card card-style p-0">
             <Card.Img className="card-img-style " variant="top" src={character.image.url} />
-            <Card.Title className="text-center">{character.name}</Card.Title>
-            <div className="d-flex flex-column align-content-center justify-content-center my-2">
-                <button
+            <Card.Title className="text-center mt-1">{character.name.toUpperCase()}</Card.Title>
+            <div className="d-flex justify-content-evenly align-content-center my-2">
+                <Button
                     disabled={isOnTeam || team.length === 6}
-                    className={isOnTeam ? 'col-12 ' : 'col-12 btn-general-style'}
+                    className={isOnTeam ? 'd-none ' : ''}
                     onClick={addToTeam} >
                     {isOnTeam ? (
                         'Agregado al Team'
                     ) : (
                         'Agregar al Team'
                     )}
-                </button>
-                <button
-                    className={isOnTeam ? 'col-12 ' : 'd-none '}
+                </Button>
+                <Button
+                variant='danger'
+                    className={isOnTeam ? '' : 'd-none '}
                     onClick={removeToTeam} >
-                    Eliminar
-                </button>
+                    Eliminar del Team
+                </Button>
             </div>
         </Card>
     )
