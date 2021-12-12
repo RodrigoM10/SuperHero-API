@@ -41,7 +41,7 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
                         <h2>Bienvenido a SuperHero API</h2>
                     </div>
                     <div className="my-3 text-center">
-                        Inicia sesíon y forma tu equipo
+                        Iniciá sesíon y forma tu equipo
                     </div>
                     <FormLogin
                         requestToken={requestToken} />
@@ -60,6 +60,14 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
                                 <Button className='my-2' as={Link} variant="outline-success" to='/searchPage'>Buscador</Button>
                             </div>
                         }
+                        {team.length <= 6 &&
+                            <div className="my-3 text-center">
+                                Equipo {team.length === 6 ? 'completo' : 'incompleto'} {team.length}/6
+                                <br />
+                                <Button className='my-2' as={Link} variant="outline-success" to='/searchPage'>Buscador</Button>
+                            </div>
+                        }
+
                         <div className="">
                             <h3>Powerstats</h3>
                             <BarPowerstats
@@ -85,6 +93,11 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
                                 Aún no tienes ningun Heroe en el equipo
                             </div>
                         }
+                        {heros.length !==0 && heros.length <= 3 &&
+                            <div className="my-3 text-center">
+                                {heros.length}/3 Heroes
+                            </div>
+                        }
                         <div className="row row-cols-3 justify-content-center">
                             {mapHeros}
                         </div>
@@ -96,6 +109,11 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
                         {villains.length === 0 &&
                             <div className="my-3 text-center">
                                 Aún no tienes ningun Villano en el equipo
+                            </div>
+                        }
+                        {villains.length !==0 && villains.length <= 3 &&
+                            <div className="my-3 text-center">
+                                {villains.length}/3 Villanos
                             </div>
                         }
                         <div className="row row-cols-3 justify-content-center">

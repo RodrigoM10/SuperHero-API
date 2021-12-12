@@ -22,7 +22,9 @@ function SearchPage({ tokenLocalData, requestToken, team, setTeam, heros, setHer
             />
             {!tokenLocalData.token ?
                 <>
-                    <h2> Para comenzar a formar tu equipo debes logearte </h2>
+                    <div className="glass-card text-center w-75 mx-auto ">
+                        <h2> Para comenzar a formar tu equipo debes logearte </h2>
+                    </div>
                     <FormLogin
                         requestToken={requestToken}
                     />

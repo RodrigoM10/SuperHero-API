@@ -54,10 +54,7 @@ export const PercentageCircle = ({ character, powerstatsData }) => {
 
 
     const mapCirclePowerstats = circlePowerstats.map((circle, i) => (
-
         <>
-
-
             <OverlayTrigger
                 key={i}
                 placement='top'

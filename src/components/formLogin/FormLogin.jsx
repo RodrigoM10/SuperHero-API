@@ -82,6 +82,7 @@ export default function FormLogin({requestToken}) {
                     id="email"
                     name="email"
                     label="Email"
+                    maxLength="35"
                     value={formik.values.email}
                     onChange={formik.handleChange}
                     error={formik.touched.email && Boolean(formik.errors.email)}
@@ -94,6 +95,7 @@ export default function FormLogin({requestToken}) {
                     name="password"
                     label="Contraseña"
                     type="password"
+                    maxLength="15"
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     error={formik.touched.password && Boolean(formik.errors.password)}

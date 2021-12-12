@@ -10,7 +10,7 @@ export const NavbarMain = ({ tokenLocalData }) => {
 
   const logout = () => {
     localStorage.removeItem('token');
-    window.location.href = '/login';
+    window.location.href = '/';
   }
   return (
     <Navbar variant="dark" className="navbar-style" expand="lg" >
@@ -27,7 +27,7 @@ export const NavbarMain = ({ tokenLocalData }) => {
                 <Nav.Link as={NavLink} to="/" activeclassname="link-active">Team</Nav.Link>
               </li>
               <li className="p-2 mt-2 mx-3">
-                <Nav.Link as={NavLink} to="/searchPage" activeclassname="link-active">Busca tus heroes</Nav.Link>
+                <Nav.Link as={NavLink} to="/searchPage" activeclassname="link-active">Buscador</Nav.Link>
               </li>
               {tokenLocalData.token &&
                 <li className="p-2 mt-2 mx-3">

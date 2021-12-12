@@ -1,9 +1,9 @@
 import React from 'react'
 
 export const AppearanceData = ({ team }) => {
-    let heightAverage = team.reduce((total, { character }) => total + (character.appearance?.height[1].substring(0, character.appearance?.height[1].length - 2) / 6), 0)
+    let heightAverage = team.reduce((total, { character }) => total + (character.appearance?.height[1].substring(0, character.appearance?.height[1].length - 2) / team.length), 0)
 
-    let weightAverage = team.reduce((total, { character }) => total + (character.appearance?.weight[1].substr(0, character.appearance?.weight[1].length - 2) / 6), 0)
+    let weightAverage = team.reduce((total, { character }) => total + (character.appearance?.weight[1].substr(0, character.appearance?.weight[1].length - 2) / team.length), 0)
     return (
         <div>
             <ul>

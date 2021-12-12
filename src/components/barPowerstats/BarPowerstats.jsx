@@ -64,7 +64,7 @@ export const BarPowerstats = ({ team }) => {
             <ProgressBar
                 className={`col-9 skills-progress p-0 green-bar`}
                 now={isNaN(powerstatsBar.totalPoints) ? 50 : powerstatsBar.totalPoints.toFixed(2)}
-                label={isNaN(powerstatsBar.totalPoints) ? 'Valor no disponible' : `${powerstatsBar.totalPoints.toFixed(2)}%`} />
+                label={isNaN(powerstatsBar.totalPoints) ? 'Valor no disponible' : `${powerstatsBar.totalPoints.toFixed(2)}`} />
         </li>
 
     ));
