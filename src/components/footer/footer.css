@@ -21,3 +21,12 @@
     font-size: 2rem;
     cursor: pointer;
 }
+.to-top-btn {
+    font-size: 1.5rem;
+    color:white;
+    text-decoration: none;
+    transition: 0.4s;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}

@@ -4,8 +4,12 @@
     padding: 0.2rem;
   }
   .form-button{
-    background-color: blue !important;
     margin: 0.5rem;
     width: 50%;
-  
+  }
+  .button-sumbit-home{
+    background-color: rgb(113, 113, 204) !important;
+  }
+  .button-sumbit-search {
+    background-color: rgb(196, 147, 73) !important;
   }

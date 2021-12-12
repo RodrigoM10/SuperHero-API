@@ -9,7 +9,7 @@ export const CardCharacter = ({ character, team, setTeam, heros, setHeros, villa
     const [isOnTeam, setIsOnTeam] = useState(false);
 
     const addToTeam = () => {
-        swal("Entonces...elije que camino tomará?", {
+        swal("Entonces... que camino tomará?", {
             buttons: {
                 cancel: "Cancelar",
                 hero: {
@@ -47,7 +47,7 @@ export const CardCharacter = ({ character, team, setTeam, heros, setHeros, villa
                         break;
 
                     default:
-                        swal("Entendido, dificil desición...");
+                        swal("Entendido, dificil decisión...");
                 }
             });
     }

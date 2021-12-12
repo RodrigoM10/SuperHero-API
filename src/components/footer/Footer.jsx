@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css'
 
 // react-icons
-import { FaArrowUp, FaFacebookSquare, FaFrog, FaGithub, FaInstagramSquare, FaLinkedinIn, FaTwitterSquare } from 'react-icons/fa';
+import { FaArrowCircleUp, FaArrowUp, FaFacebookSquare, FaFrog, FaGithub, FaInstagramSquare, FaLinkedinIn, FaTwitterSquare } from 'react-icons/fa';
 import { NavLink } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +23,7 @@ export const Footer = () => {
             </div>
             <div className="d-flex align-items-center justify-content-around py-2 footer-top-buttom">
                 <div>
-                    <span >© 2021 Derechos Rodrigo Mendoza <FaFrog className="mb-1 mx-1" /></span>
+                    <span >© Copyright RodrigoM10 2021 </span>
                 </div>
                 <div className="d-flex">
                     <div className="d-flex justify-content-center align-items-center">
@@ -37,7 +37,7 @@ export const Footer = () => {
                             <FaTwitterSquare className="social-icon" />
                         </NavLink>
                     </div>
-                    <button onClick={scrollToTop} className="to-top-btn mx-3"><FaArrowUp className="mb-1" /></button>
+                    <button onClick={scrollToTop} className=" to-top-btn mx-3"><FaArrowCircleUp className="mb-2" /></button>
                 </div>
             </div>
         </div>

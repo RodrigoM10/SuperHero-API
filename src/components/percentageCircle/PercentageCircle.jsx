@@ -14,38 +14,38 @@ export const PercentageCircle = ({ character, powerstatsData }) => {
 
     let circlePowerstats = [
         {
-            points: powerstats.combat,
+            points: powerstats?.combat,
             skill: 'Combate',
             skillIcon: <GiCrossedSwords />,
             color: 'green',
 
         },
         {
-            points: powerstats.durability,
+            points: powerstats?.durability,
             skill: 'Resistencia',
             skillIcon: <FaHeartbeat />,
             color: 'orange',
         },
         {
-            points: powerstats.intelligence,
+            points: powerstats?.intelligence,
             skill: 'Inteligencia',
             skillIcon: <FaLightbulb />,
             color: 'green',
         },
         {
-            points: powerstats.power,
+            points: powerstats?.power,
             skill: 'Poder',
             skillIcon: <FaSuperpowers />,
             color: 'orange',
         },
         {
-            points: powerstats.speed,
+            points: powerstats?.speed,
             skill: 'Velocidad',
             skillIcon: <GiPowerLightning />,
             color: 'green',
         },
         {
-            points: powerstats.strength,
+            points: powerstats?.strength,
             skill: 'Fuerza',
             skillIcon: <GiMuscleUp />,
             color: 'orange',
@@ -63,7 +63,7 @@ export const PercentageCircle = ({ character, powerstatsData }) => {
                 placement='top'
                 overlay={
                     <Tooltip id={`tooltip-top}`}>
-                        {circle.skill}
+                        {circle.skill} ({circle.points}%)
                     </Tooltip>
                 }
             >

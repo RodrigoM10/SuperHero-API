@@ -40,11 +40,6 @@ export const NavbarMain = ({ tokenLocalData }) => {
                   </NavDropdown>
                 </li>
               }
-              {!tokenLocalData.token &&
-                <li className="p-2 mt-2 mx-3">
-                  <Nav.Link as={NavLink} to="/login" activeclassname="link-active">Login</Nav.Link>
-                </li>
-              }
             </div>
           </Nav>
         </Navbar.Collapse>

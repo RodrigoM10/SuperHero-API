@@ -1,47 +1,48 @@
 import React from 'react'
-import { Card, ListGroup } from 'react-bootstrap'
+import { Card, Container, ListGroup } from 'react-bootstrap'
+import { PercentageCircle } from '../percentageCircle/PercentageCircle';
 import './characterDetail.css'
 
 export const CharacterDetail = ({ character }) => {
     const { image, name, appearance, biography, work } = character;
-    console.log("🚀 ~ file: CharacterDetail.jsx ~ line 7 ~ CharacterDetail ~ character", character)
 
     return (
-        <div className="card-details row ">
+        <div className=" glass-card card-details row justify-content-center ">
             <Card.Img
                 variant="top"
-                className=" col-12 col-lg-6 img-character my-2 "
+                className=" glass-card col-12 col-lg-6 img-character p-0 "
                 src={image?.url}
             />
-            <div className="col-12 col-lg-6  d-flex flex-column aling-items-between card-body-container mx-auto">
-                <Card.Body className="p-0">
-                    <Card.Title className="text-center my-3">
+            <Card.Body className="mx-2 p-0 col-12 col-lg-6  d-flex flex-column aling-items-between card-body-container">
+                <div className="mb-2">
+                    <h3 className="text-center my-3">
                         {name}
-                    </Card.Title>
-                    <span>({biography?.aliases})</span>
-                    <ListGroup variant="flush">
-                        <ListGroup.Item>
-                            Ubicación
-                            <div className="text-center">
-                            {work?.base}
-                            </div>
-                        </ListGroup.Item>
-                        <ListGroup.Item  >
-                            Apariencia
-                            <div className="text-start">
+                    </h3>
+                    <span>({biography?.aliases.toString()})</span>
+                </div>
+                <Container >
+                    <div className="row mb-2">
+                        <h5 className="text-center ">Ubicación</h5>
+                        <span>
+                            <ListGroup.Item className="rounded mb-1 ">{work?.base}  </ListGroup.Item>
+                        </span>
+                    </div>
+                    <div >
+                        <h5 className="text-center">Apariencia</h5>
+                        <span className="d-flex flex-column justify-content-center aling-items-center ">
+                            <ListGroup.Item className="rounded my-1" >Peso: {appearance?.weight[1]}</ListGroup.Item>
+                            <ListGroup.Item className="rounded my-1" >Altura: {appearance?.height[1]}</ListGroup.Item>
+                            <ListGroup.Item className="rounded my-1" >Color de Ojos: {appearance && appearance['eye-color']}</ListGroup.Item>
+                            <ListGroup.Item className="rounded my-1" >Color de Cabello: {appearance && appearance['hair-color']}</ListGroup.Item>
+                        </span>
+                    </div>
+                    <div >
+                        <h5 className="text-center">Powerstats</h5>
+                        <PercentageCircle character={character} />
 
-                                <li >Peso: {appearance?.weight[1]}</li>
-                                <li>Altura: {appearance?.height[1]}</li>
-                                <li>Color de Ojos: {appearance && appearance['eye-color']}</li>
-                                <li>Color de Cabello: {appearance && appearance['hair-color']}</li>
-                            </div>
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                            Powerstats
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Card.Body>
-            </div>
+                    </div>
+                </Container>
+            </Card.Body>
         </div>
     )
 }

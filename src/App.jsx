@@ -10,7 +10,6 @@ import { NavbarMain } from "./components/navbarMain/NavbarMain";
 import Home from "./pages/Home";
 import SearchPage from "./pages/SearchPage";
 import NoMatch from "./pages/NoMatch";
-import Login from "./pages/Login";
 import { readFromLocalStorage } from "./utils/localStorage";
 import { useState } from "react";
 import { useLocalStorage } from "./hooks/useLocalStorage";
@@ -44,12 +43,6 @@ function App() {
         tokenLocalData={tokenLocalData}
       />
       <Routes >
-        {!tokenLocalData.token &&
-          <Route path="/login" element={
-            <Login
-              requestToken={requestToken}
-            />} />
-        }
         {/* pages */}
         <Route path="/" element={<Home
           tokenLocalData={tokenLocalData}

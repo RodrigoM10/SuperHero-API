@@ -72,9 +72,9 @@ export default function FormLogin({requestToken}) {
         },
     });
     return (
-        <div className="bg-white my-5">
+        <div className=" rounded bg-white my-5">
             <form
-                className="form-login p-3"
+                className=" form-login p-3"
                 onSubmit={formik.handleSubmit}>
                 <TextField
                     className="input-login"
@@ -92,7 +92,7 @@ export default function FormLogin({requestToken}) {
                     fullWidth
                     id="password"
                     name="password"
-                    label="Password"
+                    label="Contraseña"
                     type="password"
                     value={formik.values.password}
                     onChange={formik.handleChange}
@@ -100,8 +100,8 @@ export default function FormLogin({requestToken}) {
                     helperText={formik.touched.password && formik.errors.password}
                 />
                 <div className="d-flex justify-content-center align-content-center">
-                <Button className="form-button" type="submit">
-                    Submit
+                <Button className={`form-button ${splitLocation[1]===''? 'button-sumbit-home': 'button-sumbit-search'}`} type="submit">
+                    Iniciar Sesión
                 </Button>
                 </div>
             </form>

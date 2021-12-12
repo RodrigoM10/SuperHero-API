@@ -8,7 +8,7 @@ import { SearchForm } from '../components/searchForm/SearchForm';
 function SearchPage({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, villains, setVillains }) {
 
     const [name, setName] = useState('')
-    const [cardResults, setCardResults] = useState('Forma tu equipo de Super Heroes y/o Super Villanos')
+    const [cardResults, setCardResults] = useState('Forma tu equipo de Super Heroes y Super Villanos')
 
     return (
         <Container className="d-flex flex-column justify-content-between  " >
