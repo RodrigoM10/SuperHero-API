@@ -30,10 +30,10 @@ export const Footer = () => {
                         <NavLink href='https://www.facebook.com/RMendoza95' target='_blank' className="p-0 mx-1">
                             <FaFacebookSquare className="social-icon" />
                         </NavLink>
-                        <NavLink href='https://twitter.com/Rodri_Mendoza' target='_blank' className="p-0 mx-1">
+                        <NavLink href='https://www.instagram.com/rodrigomendoza10/' target='_blank' className="p-0 mx-1">
                             <FaInstagramSquare className="social-icon" />
                         </NavLink>
-                        <NavLink href='https://www.instagram.com/rodrigomendoza10/' target='_blank' className="p-0 mx-1">
+                        <NavLink href='https://twitter.com/Rodri_Mendoza' target='_blank' className="p-0 mx-1">
                             <FaTwitterSquare className="social-icon" />
                         </NavLink>
                     </div>
