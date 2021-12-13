@@ -60,7 +60,7 @@ function Home({ tokenLocalData, requestToken, team, setTeam, heros, setHeros, vi
                                 <Button className='my-2' as={Link} variant="outline-success" to='/searchPage'>Buscador</Button>
                             </div>
                         }
-                        {team.length <= 6 &&
+                        {team.length !==0  && team.length <= 6 &&
                             <div className="my-3 text-center">
                                 Equipo {team.length === 6 ? 'completo' : 'incompleto'} {team.length}/6
                                 <br />
