@@ -9,6 +9,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import GoogleLogin from 'react-google-login';
 
 const validationSchema = yup.object({
     email: yup
@@ -21,13 +22,13 @@ const validationSchema = yup.object({
         .required('Contraseña requerida'),
 });
 
-export default function FormLogin({requestToken}) {
+export default function FormLogin({ requestToken }) {
 
     const location = useLocation();
     const { pathname } = location;
     const splitLocation = pathname.split("/");
 
-    
+
     const navigate = useNavigate();
 
     const formik = useFormik({
@@ -37,25 +38,25 @@ export default function FormLogin({requestToken}) {
         },
         validationSchema: validationSchema,
         onSubmit: (values) => {
-    
+
             const submitFunction = async (e) => {
-                 try {
-                   const response = await axios.post('http://challenge-react.alkemy.org/', values);
+                try {
+                    const response = await axios.post('http://localhost:4000/api/auth/login', values);
                     const { token } = response.data;
-                  saveToLocalStorage({ key: 'token', value: { token } });
-                  swal({
-                    title: "Excelente!",
-                    text: "Ingreso exitoso!",
-                    icon: "success",
-                    button: "Continuar"
-                });
-                requestToken();
-                if(splitLocation[1] === 'login') {
-                    navigate('/searchPage');
-                }
+                    saveToLocalStorage({ key: 'token', value: { token } });
+                    swal({
+                        title: "Excelente!",
+                        text: "Ingreso exitoso!",
+                        icon: "success",
+                        button: "Continuar"
+                    });
+                    requestToken();
+                    if (splitLocation[1] === 'login') {
+                        navigate('/searchPage');
+                    }
                 } catch (error) {
                     console.error(error);
-                    if(error.response.data){
+                    if (error.response.data) {
 
                         swal({
                             title: "Datos Incorrectos",
@@ -63,7 +64,7 @@ export default function FormLogin({requestToken}) {
 
                             dangerMode: true,
                         })
-                    }else {
+                    } else {
                         alert('Error de conexion')
                     }
                 }
@@ -102,9 +103,10 @@ export default function FormLogin({requestToken}) {
                     helperText={formik.touched.password && formik.errors.password}
                 />
                 <div className="d-flex justify-content-center align-content-center">
-                <Button className={`form-button ${splitLocation[1]===''? 'button-sumbit-home': 'button-sumbit-search'}`} type="submit">
-                    Iniciar Sesión
-                </Button>
+                    <Button className={`form-button ${splitLocation[1] === '' ? 'button-sumbit-home' : 'button-sumbit-search'}`} type="submit">
+                        Iniciar Sesión
+                    </Button>
+                    <a href='http://localhost:4000/auth/google'>Login google</a>
                 </div>
             </form>
         </div>
